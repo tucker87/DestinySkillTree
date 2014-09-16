@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="utf-8" />
+        <title>Destiny Class Designer</title>
+    </head>
+    <body onload="onLoad(this)">
+        <select id="cClass" onchange="updateSubClass()" >
+            <option value="hunter">Hunter</option>
+            <option value="titan">Titan</option>
+            <option value="warlock">Walock</option>
+        </select>
+        
+        <select id="subclass" onchange="updateAbilitiesTable()">
+            
+        </select>
+        <table id="classAbilities">
+            <tbody>
+                
+            </tbody>
+        </table>
+    </body>
+</html>
+<script src="./Scripts/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+    function onLoad() {
+        updateSubClass();
+    }
+
+    function updateSubClass() {
+        $.each($("#subclass")[0].options, function(key, option) {
+            $("#subclass")[0].remove(option);
+        });
+
+        var subClasses = getSubClasses($("#cClass")[0].value);
+        $.each(subClasses, function(key, subClass) {
+            $("#subclass")
+                .append($("<option></option>")
+                    .attr("value", subClass.key)
+                    .text(subClass.value));
+        });
+
+        updateAbilitiesTable();
+    }
+
+    function getSubClasses(cClass) {
+        if (cClass == "hunter")
+            return [
+                { key: "gunslinger", value: "Gunslinger" },
+                { key: "bladedancer", value: "Bladdancer" }
+            ];
+
+        if (cClass == "titan")
+            return [
+                { key: "striker", value: "Striker" },
+                { key: "defender", value: "Defender" }
+            ];
+
+        if (cClass == "warlock")
+            return [
+                { key: "voidwalker", value: "Voidwalker" },
+                { key: "sunsinger", value: "Sunsinger" }
+            ];
+
+        return [];
+    }
+
+    function row() {
+        return "<tr></tr>";
+    }
+
+    function column() {
+        return "<td></td>";
+    }
+
+    function updateAbilitiesTable() {
+        var abilities = getSubClassAbilities($("#cClass")[0].value, $("#subclass")[0].value);
+        
+        $("#classAbilities > tbody:last > tr").remove();
+
+        var currentGroup = "new";
+        var currentRow = 0;
+
+        $("#classAbilities > tbody:last")
+            .append($(row())
+            .append($(column())));
+        
+        $.each(abilities, function (key, ability) {
+
+            if (ability.group == currentGroup || currentGroup == "new") {
+                $("#classAbilities > tbody:last > tr").eq(currentRow).find('td').last()
+                    .append($(button()).prop('value', ability.name))
+                    .parent().parent().append($(row()).append($(column())));
+                currentRow++;
+                currentGroup = ability.group;
+            } else {
+                $("#classAbilities > tbody:last > tr").eq(currentRow).children()
+                    .append($("<div></div>"));
+
+                $.each($("#classAbilities > tbody:last > tr"), function(key, row) {
+                    $(row).append($(column()));
+                });
+                $("#classAbilities > tbody:last > tr:first > td:last").append($(button()).prop('value', ability.name)); 
+                currentRow = 1;
+                currentGroup = "new";
+            }
+        });
+
+        var lookup = {};
+        var items = abilities;
+        var abilityGroups = [];
+
+        for (var item, i = 0; item = items[i++];) {
+            var group = item.group;
+
+            if (!(group in lookup)) {
+                lookup[group] = 1;
+                abilityGroups.push(group);
+            }
+        }
+        $("#classAbilities > tbody:last").prepend($(row()));
+        $.each(abilityGroups, function(key, group) {
+            $("#classAbilities > tbody:last > tr:first").append($(column()).html(group));
+        });
+    }
+
+    function getSubClassAbilities(cClass, subClass) {
+        var response = {};
+        $.ajax({
+            async: false,
+            global: false,
+            dataType: "json",
+            url: "./" + cClass + ".json",
+            success: function(data) {
+                response = data;
+            },
+            error: function(xhr, status, err) {
+                alert(err);
+            }
+        }); 
+        return response[subClass];
+    }
+
+    function button() {
+        return '<input type="button"/>';
+    }
+</script>

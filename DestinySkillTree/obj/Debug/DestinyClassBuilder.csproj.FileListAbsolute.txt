@@ -1,0 +1,6 @@
+C:\~Projects\DestinyClassBuilder\DestinyClassBuilder\obj\Debug\DestinyClassBuilder.csprojResolveAssemblyReference.cache
+C:\~Projects\DestinyClassBuilder\DestinyClassBuilder\bin\Debug\DestinyClassBuilder.dll.config
+C:\~Projects\DestinyClassBuilder\DestinyClassBuilder\bin\Debug\DestinyClassBuilder.dll
+C:\~Projects\DestinyClassBuilder\DestinyClassBuilder\bin\Debug\DestinyClassBuilder.pdb
+C:\~Projects\DestinyClassBuilder\DestinyClassBuilder\obj\Debug\DestinyClassBuilder.dll
+C:\~Projects\DestinyClassBuilder\DestinyClassBuilder\obj\Debug\DestinyClassBuilder.pdb
