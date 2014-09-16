@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DestinySkillTree", "DestinyClassBuilder\DestinySkillTree.csproj", "{469BD241-177D-465D-90C7-8B1F5AD0B60B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DestinySkillTree", "DestinySkillTree\DestinySkillTree.csproj", "{469BD241-177D-465D-90C7-8B1F5AD0B60B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
