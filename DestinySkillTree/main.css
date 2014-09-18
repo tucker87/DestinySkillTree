@@ -1,0 +1,22 @@
+﻿table.talents {
+    
+}
+
+td.selected {
+    background: blue;
+}
+
+div.talentPopup {
+    display: none;
+    position: absolute;
+}
+
+div.talentTitle {
+    background: white;
+    color: black;
+}
+
+div.talentDescription {
+    color: white;
+    background: grey;
+}
