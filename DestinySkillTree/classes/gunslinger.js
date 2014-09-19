@@ -1,6 +1,6 @@
 var gunslinger = {
     name: 'Gunslinger',
-    image: 'images/hunter/class.png',
+    image: 'images/hunter/gunslinger/class.png',
     description: 'A lone wolf who lives for the perfect shot.',
     stats: {
         armor: 10,

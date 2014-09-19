@@ -1,6 +1,6 @@
 var defender = {
             name: 'Defender',
-            image: 'images/titan/class.png',
+            image: 'images/titan/defender/class.png',
             description: 'The wall against which the Darkness breaks.',
             stats: {
                 armor: 40,

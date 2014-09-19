@@ -16,21 +16,46 @@
         <meta charset="utf-8" />
         <title>Destiny Class Designer</title>
     </head>
-    <body onload="onLoad(this)" style="background: black">
-        <div id="classList">
+    <body onload="onLoad(this)">
+        <div class="frame">
+            <div class="cClasses" id="classList">
             
-        </div>
-        <div id="subClassList">
+            </div>
+            <div class="cSubClasses" id="subClassList">
             
-        </div>
-        <table class="talents" id="classTalents">
-            <tbody>
+            </div>
+            <div class="currentClass">
+                <img id="classIcon" class="classIcon" alt=""/>
+                <div id="classDesc" class="classDesc"></div>
+
+            </div>
+            <div class="attributes">
+                <div class="attributeNames">
+                    <div class="attribute">
+                        <span class="attributeName">Armor</span>
+                    </div>
+                    <div class="attribute">
+                        <span class="attributeName">Recovery</span>
+                    </div>
+                    <div class="attribute">
+                        <span class="attributeName">Agility</span>
+                    </div>
+                </div>
+                <div class="attributeBars">
+                    <div id="armor" class="attributeBar"></div>
+                    <div id="recovery" class="attributeBar"></div>
+                    <div id="agility" class="attributeBar"></div>
+                </div>
+            </div>
+            <table class="talents" id="classTalents">
+                <tbody>
                 
-            </tbody>
-        </table>
-        <div id="talentPopup" class="talentPopup">
-            <div id="talentTitle" class="talentTitle">foo</div>
-            <div id="talentDesc" class="talentDescription">foo</div>
+                </tbody>
+            </table>
+            <div id="talentPopup" class="talentPopup">
+                <div id="talentTitle" class="talentTitle">foo</div>
+                <div id="talentDesc" class="talentDescription">foo</div>
+            </div>
         </div>
     </body>
 </html>

@@ -1,0 +1,6 @@
+C:\~Git\DestinySkillTree\DestinySkillTree\bin\Debug\DestinyClassBuilder.dll.config
+C:\~Git\DestinySkillTree\DestinySkillTree\bin\Debug\DestinyClassBuilder.dll
+C:\~Git\DestinySkillTree\DestinySkillTree\bin\Debug\DestinyClassBuilder.pdb
+C:\~Git\DestinySkillTree\DestinySkillTree\obj\Debug\DestinySkillTree.csprojResolveAssemblyReference.cache
+C:\~Git\DestinySkillTree\DestinySkillTree\obj\Debug\DestinyClassBuilder.dll
+C:\~Git\DestinySkillTree\DestinySkillTree\obj\Debug\DestinyClassBuilder.pdb

@@ -1,4 +1,5 @@
 ﻿var currentClass;
+var currentSubClass;
 function onLoad() {
     buildClassList();
     currentClass = classes[0];
@@ -12,7 +13,7 @@ function buildClassList() {
 }
 
 function classLink(className) {
-    return '<input type="button" value="' + className + '" onclick="chooseClass(\'' + className + '\')"/>';
+    return '<input type="button" class="classButton" value="' + className + '" onclick="chooseClass(\'' + className + '\')"/>';
     //return '<span onclick="chooseClass(' + className + ')">' + className +'</span>';
 }
 
@@ -20,7 +21,34 @@ function chooseClass(className) {
     clearSubClasses();
     addSubClasses(className);
     currentClass = classes[getClassIndex(className)];
-    updateTalentsTable($("#subClassList").children()[0].value);
+    var firstSubClass = currentClass.subClasses[0];
+    updateAll(firstSubClass);
+}
+
+function updateAll(subClass) {
+    updateTalentsTable(subClass.name);
+    updateClassIcon(subClass.image);
+    updateClassName(subClass.name);
+    updateClassDesc(subClass.description);
+    updateClassAttr(subClass.stats);
+}
+
+function updateClassAttr(stats) {
+    $("#armor").css('width', stats.armor * 2);
+    $("#recovery").css('width', stats.recovery * 2);
+    $("#agility").css('width', stats.agility * 2);
+}
+
+function updateClassIcon(subClassImage) {
+    $("#classIcon").attr('src', subClassImage);
+}
+
+function updateClassName(className) {
+    var classNameDiv = $('#classDesc');
+    classNameDiv.children().remove('.className');
+    classNameDiv.append($('<span></span>')
+        .html(className)
+        .attr('class', "className"));
 }
 
 function clearSubClasses() {
@@ -35,12 +63,21 @@ function addSubClasses(className) {
 }
 
 function subClassLink(subClassName) {
-    return '<input type="button" value="' + subClassName + '" onclick="chooseSubClass(\'' + subClassName + '\')"/>';
+    return '<input type="button" class="classButton" value="' + subClassName + '" onclick="chooseSubClass(\'' + subClassName + '\')"/>';
     //return '<span onclick="chooseSubClass(' + subClassName + ')">' + subClassName + '</span>';
 }
 
 function chooseSubClass(subClassName) {
-    updateTalentsTable(subClassName);
+    currentSubClass = currentClass.subClasses[getSubClassIndex(subClassName)];
+    updateAll(currentSubClass);
+}
+
+function updateClassDesc(desc) {
+    var classNameDiv = $('#classDesc');
+    classNameDiv.children().remove('.classDescText');
+    classNameDiv.append($('<span></span>')
+        .html(desc)
+        .attr('class', "classDescText"));
 }
 
 function updateTalentsTable(subClassName) {
@@ -60,14 +97,16 @@ function updateTalentsTable(subClassName) {
                         .attr('row', rowKey)
                         .attr('col', columnKey)
                         .attr('onclick', "selectTalent(this)")
+                        .attr('class', "talent")
                         .append($('<img></img>')
                             .prop('src', column.image)
+                            .attr('class', "talentImg")
                             .hover(function (e) {
                                 $('#talentTitle').html(column.name);
                                 $('#talentDesc').html(column.description);
-                                $('#talentPopup').show();
+                                $('#talentPopup').stop(true,true).fadeIn();
                             }, function() {
-                                $('#talentPopup').hide();
+                                $('#talentPopup').stop(true,true).fadeOut();
                             })
                             .mousemove(function(e) {
                                 $('#talentPopup').css('top', e.pageY + yOffset).css('left', e.pageX + xOffset);

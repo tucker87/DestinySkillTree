@@ -1,6 +1,6 @@
 var voidwalker = {
     name: 'Voidwalker',
-    image: 'images/warlock/class.png',
+    image: 'images/warlock/voidwalker/class.png',
     description: 'Those who have stared into the Void are not bound by the laws of space and time.',
     stats: {
         armor: 10,

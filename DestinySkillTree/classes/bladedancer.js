@@ -1,6 +1,6 @@
 var bladedancer = {
     name: 'Bladedancer',
-    image: 'images/hunter/class.png',
+    image: 'images/hunter/bladedancer/class.png',
     description: 'Beautiful lethality, relentless style.',
     stats: {
         armor: 10,

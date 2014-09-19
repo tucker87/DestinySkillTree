@@ -1,6 +1,6 @@
 var striker = {
             name: 'Striker',
-            image: 'images/titan/class.png',
+            image: 'images/titan/striker/class.png',
             description: 'At close quarters a fist is better than any gun.',
             stats: {
                 armor: 40,
