@@ -106,7 +106,7 @@ var striker = {
                     {
                         name: 'Aftershocks',
                         description: 'Increases the duration of Pulse Grenade,\nShock Grenade, and Aftermath.',
-                        image: 'images/titan/striker/Aftershocks.png'
+                        image: 'images/titan/striker/aftershocks.png'
                     },
                     {
                         name: 'Titan Codex V',
