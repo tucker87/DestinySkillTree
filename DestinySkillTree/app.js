@@ -101,7 +101,7 @@ function updateTalentsTable(subClassName) {
                         .append($('<img></img>')
                             .prop('src', column.image)
                             .attr('class', "talentImg")
-                            .hover(function (e) {
+                            .hover(function () {
                                 $('#talentTitle').html(column.name);
                                 $('#talentDesc').html(column.description);
                                 $('#talentPopup').stop(true,true).fadeIn();
